@@ -29,7 +29,9 @@ let nombreCompleto = [nombre,apellido].join(" ");
 console.log(nombreCompleto);
 
 //usando el map
+ 
 mapear();
+
 function mapear(){
     var nombreOrdenado = nombre.sort();
     let indiceDos = 1;

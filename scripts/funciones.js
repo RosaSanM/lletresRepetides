@@ -44,7 +44,28 @@ const vocal = (()=>{
 });
 
 //Metemos en el map
+
 const map = (()=>{
+    var maps = new Map();
+    nombre = document.getElementById("nombre").value;
+    document.getElementById("imprimeMap").innerHTML = " ";
+    for(nom of nombre){
+        let contador = 0;
+        maps.set(nom);
+        for(nomb of nombre){
+            if(nomb == nom){
+                contador++;
+                maps.set(nom,contador);
+            }
+        }
+    }
+    for([clave,valor] of maps){
+        document.getElementById("imprimeMap").innerHTML += `La letra ${clave} se repite ${valor} veces. </br>`;
+    }
+    
+    console.log(maps);
+});
+/*const map = (()=>{
     let nombreMin = document.getElementById("nombre").value;
     nombre = serArray(nombreMin);
     var nombreOrdenado = nombre.sort();
@@ -80,7 +101,8 @@ const map = (()=>{
         
         document.getElementById("imprimeMap").innerHTML += `La letra ${key} se repite ${valor} veces. </br>`;
     });
-});
+});*/
+
  //Creamos el nombre completo
  const nombreCompleto = (()=>{
     document.getElementById("imprimeCompleto").innerText = " ";
@@ -96,15 +118,14 @@ const map = (()=>{
 
 //buscar los mails en el string
 const encontrar = (()=>{
+    document.getElementById("imprimeEmail").innerText = " ";
     let regex2 = /[\w._%+-]+@[\S]+\.[a-zA-Z]{2,4}/gi;
     let texto = document.getElementById("texto").value;
     var encontrar = texto.match(regex2);
     if(encontrar){
-        document.getElementById("imprimeEmail").innerText = " ";
         document.getElementById("imprimeEmail").innerText = `He encontrado estos emails: ${encontrar}`;
         console.log(encontrar);
     }else{
-        document.getElementById("imprimeEmail").innerText = " ";
         encontrar = 0;
         document.getElementById("imprimeEmail").innerText = `He encontrado estos emails: ${encontrar}`;
     }
