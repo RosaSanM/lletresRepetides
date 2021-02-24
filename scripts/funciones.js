@@ -65,6 +65,23 @@ const map = (()=>{
     
     console.log(maps);
 });
+/* Optimización del map
+const map = (()=>{
+    let myArray = document.getElementById("nombre").value;
+    mapStr = new Map;
+    for(let i = 0; i<myArray.length; i++){
+        let item = parseInt(mapStr.get(myArray[i]))
+        // console.log(item)
+        if(item>=1){
+            // console.log(item)
+            mapStr.set(myArray[i], item+=1)
+        }else{
+            mapStr.set(myArray[i],1)
+        }
+    }
+    console.log(mapStr)
+});
+*/
 /*const map = (()=>{
     let nombreMin = document.getElementById("nombre").value;
     nombre = serArray(nombreMin);
